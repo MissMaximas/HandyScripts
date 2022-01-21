@@ -15,7 +15,6 @@ class JiraCon:
         self.JIRA_CONF = JiraConfig(JIRA_CONF_PATH)
         self._conn = self._make_jira_con()
 
-
     def _make_jira_con(self):
         return JIRA(options={'server': self.JIRA_CONF.get_jira_server()},
                     basic_auth=(self.JIRA_CONF.get_email(), self.JIRA_CONF.get_api_token())
@@ -42,9 +41,13 @@ class JiraCon:
                 highest_id = int(sprint.id)
         return self._conn.sprint_info(board_id=str(self.RLP1_BOARD_ID), sprint_id=str(highest_id))
 
+    def get_active_tickets_in_sprint(self):
+        #TODO: 
+        return self._conn.search_issues('project=PROJ')
+
     def testy(self, issue):
-        print(self._conn.sprints(board_id=self.RLP1_BOARD_ID))
         print(self._conn.sprints(board_id=self.RLP1_BOARD_ID))
 
 
 print(JiraCon().get_latest_sprint())
+
