@@ -1,3 +1,7 @@
+""" B Flat Replace
+
+Demoing to someone the different ways you can replace b flat ("♭") in a string
+"""
 import re
 
 B_FLAT = "♭"
