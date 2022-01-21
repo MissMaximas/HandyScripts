@@ -2,4 +2,4 @@
 virtual_env
 .idea
 *.pyc
-*.ini
+prod.ini
